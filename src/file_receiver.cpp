@@ -3,6 +3,7 @@
 File_Receiver::File_Receiver(QString port)
 {
     connect(&server, &QTcpServer::newConnection, this, &File_Receiver::connected);
+
     //启动服务器
     server.listen(QHostAddress::Any,port.toUShort());
 }

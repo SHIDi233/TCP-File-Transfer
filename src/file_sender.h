@@ -12,6 +12,9 @@ class File_Sender : public QThread
     Q_OBJECT
 public:
     File_Sender(QString name, QString ip, QString port);
+
+    File_Sender(QString name, QString ip, QString port, int rate);
+
 private:
     QTcpSocket socket;
     QFile file;
@@ -21,6 +24,8 @@ private:
     QString name;
     QString ip;
     QString port;
+
+    int rate=10;
 
 private slots:
     void send_header();
